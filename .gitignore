@@ -1,4 +1,4 @@
-# Python
+﻿# Python
 .venv/
 venv/
 __pycache__/
@@ -8,16 +8,17 @@ __pycache__/
 # Jupyter
 .ipynb_checkpoints/
 
-# Environment variables
+# Environment variables and secrets
 .env
 .env.*
 
-# Dataset files
+# Datasets (provide download/setup instructions separately)
 data/raw/
 data/processed/
 
-# Trained models
-models/
+# Ignore models by default, but allow model artifacts
+models/*
+!models/*.joblib
 
 # Logs
 *.log
