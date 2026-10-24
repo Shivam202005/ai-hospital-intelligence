@@ -1,0 +1,66 @@
+{
+  "project": "AI-Driven Predictive Data Mining for 30-Day Hospital Readmission and Hospital Resource Optimization",
+  "current_scope": "30-day hospital readmission prediction",
+  "dataset": "UCI Diabetes 130-US Hospitals",
+  "evaluation_run": "Recovered final XGBoost model",
+  "evaluation_date": "2026-10-23",
+  "target": "readmitted_30",
+  "positive_class_definition": "readmitted == '<30'",
+  "split_method": "Patient-level train/test split",
+  "training_encounters": 81477,
+  "test_encounters": 20289,
+  "input_features": 43,
+  "encoded_features": 2391,
+  "model": "XGBoost",
+  "model_configuration": {
+    "n_estimators": 200,
+    "max_depth": 4,
+    "learning_rate": 0.05,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "objective": "binary:logistic",
+    "eval_metric": "logloss",
+    "random_state": 42
+  },
+  "classification_threshold": 0.15,
+  "test_metrics": {
+    "accuracy": 0.7912,
+    "precision": 0.2272,
+    "recall": 0.397,
+    "f1_score": 0.289,
+    "roc_auc": 0.6868,
+    "pr_auc": 0.2357
+  },
+  "confusion_matrix": {
+    "layout": [
+      [
+        "true_negative",
+        "false_positive"
+      ],
+      [
+        "false_negative",
+        "true_positive"
+      ]
+    ],
+    "values": [
+      [
+        15191,
+        2929
+      ],
+      [
+        1308,
+        861
+      ]
+    ]
+  },
+  "artifacts": {
+    "pipeline": "models/xgboost_final.joblib",
+    "threshold": "models/xgboost_final_threshold.joblib"
+  },
+  "limitations": [
+    "Research prototype, not a clinically validated diagnostic tool.",
+    "Metrics are from the recovered model's fresh evaluation, not the older notebook run.",
+    "The classification threshold is a configurable research decision, not a clinically approved cutoff.",
+    "The current semester scope excludes hospital resource optimization."
+  ]
+}
